@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'authentication',
     'financials',
     'human_resources',
-    'sales'
+    'sales',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

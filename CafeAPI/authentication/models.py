@@ -8,8 +8,8 @@ from django.contrib.auth import get_user_model
 class User(AbstractUser): 
     
 
-    class Roles (models.TextChoices):
-        ADMIN  = ' admin', 'Admin'
+    class Roles(models.TextChoices):
+        ADMIN = 'admin', 'Admin'
         SUPERUSER = 'superuser', 'SuperUser'
         USER = 'user', 'User'
 
