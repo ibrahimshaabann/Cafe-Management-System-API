@@ -10,7 +10,7 @@ router.register(r'users', UserViewSet, basename='users')
 
 urlpatterns = [
     path('', include(router.urls)), 
-    path('token/', TokenObtainPairView.as_view)
+    path('token/', TokenObtainPairView.as_view()) # saba7 el foll, u forgot to put the () in as_view
 ]
 
 # urlpatterns = [
