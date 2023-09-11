@@ -145,16 +145,16 @@ from datetime import timedelta
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
-    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
-    'SLIDING_TOKEN_LIFETIME': timedelta(days=1),
-    'SLIDING_TOKEN_REFRESH_LIFETIME_GRACE_PERIOD': timedelta(days=1),
-    'SLIDING_TOKEN_LIFETIME_GRACE_PERIOD': timedelta(days=1),
-    'SLIDING_TOKEN_REFRESH_EASING': timedelta(days=1),
-    'SLIDING_TOKEN_LIFETIME': timedelta(days=1),
-    'ROTATE_REFRESH_TOKENS': False,
-    'ALGORITHM': 'HS256',
-    'SIGNING_KEY': None,
-    'VERIFYING_KEY': None,
-    'AUTH_HEADER_TYPES': ('Bearer',),
+    # 'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+    # 'SLIDING_TOKEN_LIFETIME': timedelta(days=1),
+    # 'SLIDING_TOKEN_REFRESH_LIFETIME_GRACE_PERIOD': timedelta(days=1),
+    # 'SLIDING_TOKEN_LIFETIME_GRACE_PERIOD': timedelta(days=1),
+    # 'SLIDING_TOKEN_REFRESH_EASING': timedelta(days=1),
+    # 'SLIDING_TOKEN_LIFETIME': timedelta(days=1),
+    # 'ROTATE_REFRESH_TOKENS': False,
+    # 'ALGORITHM': 'HS256',
+    # 'SIGNING_KEY': None,
+    # 'VERIFYING_KEY': None,
+    # 'AUTH_HEADER_TYPES': ('Bearer',),
 }
 

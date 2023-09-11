@@ -16,8 +16,7 @@ class User(AbstractUser):
 
     role = models.TextField(choices=Roles.choices,
                             default=Roles.USER,
-                            null=False
-                            )
+                            null=False)
     
     # @receiver(post_save, sender = settings.AUTH_USER_MODEL)
     # def create_user_token(sender, instance = None):
