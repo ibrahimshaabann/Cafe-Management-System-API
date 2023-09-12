@@ -48,7 +48,7 @@ class Shift(models.Model):
 
     class Meta:
         verbose_name_plural = "الشيفت"
-        ordering = [-1]
+        # ordering = [-1] # منك لله يبعيد
 
    
     def __str__(self) :
@@ -114,6 +114,7 @@ class Attendence(models.Model):
     def __str__(self) :
         return f" {self.worker_attended} {self.login_time}{self.logout_time}User: {self.user_created_the_attendence}"
     
+
 
 class Customer(Person):
     def __str__(self) -> str:
