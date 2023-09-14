@@ -1,7 +1,5 @@
 from django.db import models
-from django.db import models
-from django.contrib.auth.models import User
-from django.db.models import Sum
+from authentication.models import User
 
 
 class Benefits(models.Model):
@@ -32,7 +30,7 @@ class Costs(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     date = models.DateTimeField(verbose_name="وقت الدفع", auto_now_add=True)
     user = models.ForeignKey(User, verbose_name='مسئول الشيفت', on_delete=models.SET_NULL, null=True)
-    benefit_id = models.ForeignKey(Benefits, on_delete=models.SET_NULL, null=True)
+    benefit = models.ForeignKey(Benefits, on_delete=models.SET_NULL, null=True)
     
     # def save(self, *args, **kwargs):
     #     super().save(*args, **kwargs)

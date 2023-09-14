@@ -44,7 +44,7 @@ class Order(models.Model):
     total_price = models.DecimalField("اجمالي السعر", max_digits=7, decimal_places=2, default=0.00)
     is_active = models.BooleanField(verbose_name="نشط",default=True)
     # benefit_id = models.ForeignKey(Benefits, on_delete=models.SET_NULL, null=True, verbose_name="رقم فتره الربح")
-    customer = models.ForeignKey(Customer,on_delete=models.SET_NULL,null=True,verbose_name="العميل")
+    customer = models.ForeignKey(Customer,on_delete=models.SET_NULL,null=True,blank=True,verbose_name="العميل")
     class Meta:
         verbose_name_plural = "الاوردرات"
         ordering = ['-date_time']
@@ -65,8 +65,3 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f"{self.quantity} {self.item.name}"
-
-
-    # def save(self, *args, **kwargs):
-    #     self.price = self.item.price * self.quantity
-    #     super().save(*args, **kwargs)
