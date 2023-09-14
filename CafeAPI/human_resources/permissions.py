@@ -63,5 +63,6 @@ class ShiftOrAttendencePermission(permissions.BasePermission):
             print(request.user.role)
             print (request.user.role == User.Roles.SUPERUSER)
             return request.user.role in [User.Roles.ADMIN, User.Roles.SUPERUSER]
+
         
 
