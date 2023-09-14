@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.shortcuts import render
-import jwt
+# import jwt
 
 from rest_framework import viewsets
 from .models import User

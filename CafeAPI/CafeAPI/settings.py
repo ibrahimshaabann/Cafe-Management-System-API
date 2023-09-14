@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'authentication',
     'django_extensions',
     'financials',
-    'human_resources',
     'sales',
+    'human_resources',
     'django_filters',
 ]
 
