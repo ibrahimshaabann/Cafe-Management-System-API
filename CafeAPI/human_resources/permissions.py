@@ -65,20 +65,3 @@ class ShiftOrAttendencePermission(permissions.BasePermission):
             return request.user.role in [User.Roles.ADMIN, User.Roles.SUPERUSER]
         
 
-
-    # class IsOwnerOrAdmin(permissions.BasePermission):
-    # def has_permission(self, request, view):
-    #     # Check if the user is authenticated
-    #     if not request.user.is_authenticated:
-    #         return False
-
-    #     # Allow GET, LIST, and PATCH requests
-    #     if request.method in ('GET', 'LIST', 'PATCH'):
-    #         return True
-
-    #     # Check if the user has the admin or superuser role
-    #     if request.user.role in [User.Roles.ADMIN, User.Roles.SUPERUSER]:
-    #         return True
-
-    #     return False
-
