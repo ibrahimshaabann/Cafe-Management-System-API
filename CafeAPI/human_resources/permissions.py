@@ -28,9 +28,9 @@ class CustomerAccessPermission(permissions.BasePermission):
         if not request.user.is_authenticated:
             return False
         if request.method in ('POST', 'GET', 'PATCH', 'PUT'):
-            return request.user.role in [User.Roles.USER, User.Roles.ADMIN, User.Roles.SUPERUSER]
+            return request.user.role in [User.Roles.USER, User.Roles.ADMIN]
         else: #Delete
-            return request.user.role in [User.Roles.ADMIN, User.Roles.SUPERUSER]
+            return request.user.role == User.Roles.ADMIN
         
 
 class SalOrEmpAccessPermission(permissions.BasePermission):
@@ -44,7 +44,7 @@ class SalOrEmpAccessPermission(permissions.BasePermission):
             return False
         
         if request.method in ('POST', 'GET', 'PATCH', 'PUT', 'DELETE'):
-            return request.user.role in [User.Roles.ADMIN, User.Roles.SUPERUSER]
+            return request.user.role == User.Roles.ADMIN
         
         else: # if request.user is a normal user
             return False
@@ -60,25 +60,6 @@ class ShiftOrAttendencePermission(permissions.BasePermission):
         
         # Only admins and superusers are allowed to perform PUT or DELETE
         if request.method in ('DELETE', 'PUT'):
-            print(request.user.role)
-            print (request.user.role == User.Roles.SUPERUSER)
-            return request.user.role in [User.Roles.ADMIN, User.Roles.SUPERUSER]
+            return request.user.role == User.Roles.ADMIN
         
-
-
-    # class IsOwnerOrAdmin(permissions.BasePermission):
-    # def has_permission(self, request, view):
-    #     # Check if the user is authenticated
-    #     if not request.user.is_authenticated:
-    #         return False
-
-    #     # Allow GET, LIST, and PATCH requests
-    #     if request.method in ('GET', 'LIST', 'PATCH'):
-    #         return True
-
-    #     # Check if the user has the admin or superuser role
-    #     if request.user.role in [User.Roles.ADMIN, User.Roles.SUPERUSER]:
-    #         return True
-
-    #     return False
 
