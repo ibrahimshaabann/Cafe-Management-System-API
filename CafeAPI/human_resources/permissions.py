@@ -60,13 +60,6 @@ class ShiftOrAttendencePermission(permissions.BasePermission):
         
         # Only admins and superusers are allowed to perform PUT or DELETE
         if request.method in ('DELETE', 'PUT'):
-<<<<<<< HEAD
-            print(request.user.role)
-            print (request.user.role == User.Roles.SUPERUSER)
-            return request.user.role in [User.Roles.ADMIN, User.Roles.SUPERUSER]
-
-=======
             return request.user.role == User.Roles.ADMIN
->>>>>>> 6d70f6c1cae265571e4dc0a4deac6e73b40842df
         
 
