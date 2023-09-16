@@ -14,8 +14,10 @@ class MenuApiView(ModelViewSet):
     queryset = Menu.objects.all()
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsOwnerOrAdmin]
-    filter_backends = (DjangoFilterBackend, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend,filters.SearchFilter, filters.OrderingFilter)
     ordering_fields = ['category']
+    search_filter = ['name']
+
 
 
 class TableApiView(ModelViewSet):
@@ -23,18 +25,18 @@ class TableApiView(ModelViewSet):
     queryset = Table.objects.all()
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsOwnerOrAdmin]
-    filter_backends = (DjangoFilterBackend, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend,filters.SearchFilter, filters.OrderingFilter)
     ordering_fields = ['id']
-
+    search_filter = ['name']
 
 class CategoryApiView(ModelViewSet):
     serializer_class = CategorySerializer
     queryset = Category.objects.all()
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsOwnerOrAdmin]
-    filter_backends = (DjangoFilterBackend, filters.OrderingFilter)
-    ordering_fields = ['name']
-
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter)
+    # ordering_fields = ['name']
+    search_fields = ['name']
 
 class OrderApiView(ModelViewSet):
     serializer_class = OrderSerializer

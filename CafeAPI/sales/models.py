@@ -23,7 +23,7 @@ class Category(models.Model):
         return self.name
 
 class Menu(models.Model):
-    name = models.CharField("الصنف", max_length=150,blank=True)
+    name = models.CharField("الصنف", max_length=150)
     price = models.DecimalField("السعر", decimal_places=2, max_digits=5)
     quantity = models.IntegerField(verbose_name="الكميه",null=True,blank=True)
     available = models.BooleanField(default=True,verbose_name="متاح")
@@ -38,7 +38,7 @@ class Menu(models.Model):
 
 
 class Order(models.Model):
-    date_time = models.DateTimeField("وقت الاوردر", auto_now_add=True)
+    date_time = models.DateTimeField("وقت الاوردر", auto_now=True)
     table = models.ForeignKey(Table, null=True, on_delete=models.SET_NULL, verbose_name="طاولة")
     shift = models.ForeignKey(Shift,related_name='order_set', null=True, on_delete=models.SET_NULL, verbose_name="شيفت")
     total_price = models.DecimalField("اجمالي السعر", max_digits=7, decimal_places=2, default=0.00)
@@ -48,10 +48,10 @@ class Order(models.Model):
     class Meta:
         verbose_name_plural = "الاوردرات"
         ordering = ['-date_time']
-    
+        ordering = ['-id']
     def __str__(self):
         return f"{self.pk}"
-
+    
 
 
 class OrderItem(models.Model):
