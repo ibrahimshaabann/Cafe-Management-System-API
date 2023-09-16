@@ -13,7 +13,7 @@ class CustomerViewSet(ModelViewSet):
     authentication_classes = [BasicAuthentication]
     # permission_classes = [IsAuthenticated, CustomerAccessPermission]
     # filter_backends = None
-    # ordering_fields = None
+    ordering_fields = None
 
 
 class EmployeeViewSet(ModelViewSet):
