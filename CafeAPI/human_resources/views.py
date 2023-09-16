@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.filters import SearchFilter
+from rest_framework.filters import SearchFilter, OrderingFilter
 from human_resources.models import Customer, Employee, Shift, Attendence, SalaryDeduction
 from .serializers import CustomerSerializer, ShiftSerializer, EmployeeSerializer, AttendanceSerializer, SalaryDeductionSerializer
 from rest_framework.authentication import BasicAuthentication
@@ -13,9 +13,9 @@ class CustomerViewSet(ModelViewSet):
     serializer_class = CustomerSerializer
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAuthenticated, CustomerAccessPermission]
-    filter_backends = [SearchFilter]
+    filter_backends = (SearchFilter,)
     search_fields = ['phone_no','fname', 'lname']
-    # ordering_fields = None
+    # ordering_fields = ['-id']
 
 
 class EmployeeViewSet(ModelViewSet):
@@ -23,16 +23,16 @@ class EmployeeViewSet(ModelViewSet):
     serializer_class = EmployeeSerializer
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAuthenticated, SalOrEmpAccessPermission]
-    filter_backends = [SearchFilter]
+    filter_backends = (SearchFilter, OrderingFilter)
     search_fields = ['phone_no','fname', 'lname']
-    # ordering_fields = None
+    ordering_fields = ['-id']
 
 class ShiftViewSet(ModelViewSet):
     queryset = Shift.objects.all()
     serializer_class = ShiftSerializer
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAuthenticated, ShiftOrAttendencePermission]   
-    filter_backends = [SearchFilter]
+    filter_backends = (SearchFilter)
 
     # Search for shifts belonging to a specific user
     search_fields = ['user__username']
@@ -44,7 +44,7 @@ class AttendenceViewSet(ModelViewSet):
     serializer_class = AttendanceSerializer
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAuthenticated, ShiftOrAttendencePermission]   
-    filter_backends = [SearchFilter]
+    filter_backends = (SearchFilter)
     search_fields = ['employee_attended__fname', 'employee_attended__lname']
     # ordering_fields = None
 
