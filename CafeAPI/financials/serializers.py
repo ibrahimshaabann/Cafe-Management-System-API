@@ -9,7 +9,6 @@ class BenefitsSerializer(serializers.ModelSerializer):
 
 
 class CostsSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Costs
         fields = '__all__'

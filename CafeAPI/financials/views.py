@@ -21,6 +21,6 @@ class CostsApiView(ModelViewSet):
     queryset = Costs.objects.all()
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsUserPOST]
-    filter_backends = (SearchFilter)
+    # filter_backends = (SearchFilter)
     search_fields = ['description']
     
