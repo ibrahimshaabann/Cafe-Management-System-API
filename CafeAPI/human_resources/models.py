@@ -60,6 +60,7 @@ class Employee(Person):
     deductions = models.DecimalField(max_digits=7, decimal_places=2, verbose_name="خصومات", null=True, default=0)
 
     class Meta:
+        ordering = ['-id']
         verbose_name_plural = "الموظف"
 
     # def __str__(self) -> str:
@@ -106,7 +107,8 @@ class Attendence(models.Model):
     user_created_the_attendence =  models.ForeignKey(User, on_delete=models.SET_NULL,null=True,verbose_name= "المسئول")
    
     class Meta:
-            verbose_name_plural = "الحضور والانصراف"
+        ordering = ['-id']
+        verbose_name_plural = "الحضور والانصراف"
 
     def __str__(self) :
         return f" {self.employee_attended} {self.login_time}{self.logout_time}User: {self.user_created_the_attendence}"
@@ -115,3 +117,7 @@ class Attendence(models.Model):
 class Customer(Person):
     def __str__(self) -> str:
         return  super().__str__()
+    
+
+    class Meta:
+        ordering = ['-id']

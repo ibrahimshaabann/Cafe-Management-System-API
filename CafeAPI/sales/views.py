@@ -16,7 +16,7 @@ class MenuApiView(ModelViewSet):
     permission_classes = [IsOwnerOrAdmin]
     filter_backends = (DjangoFilterBackend,filters.SearchFilter, filters.OrderingFilter)
     ordering_fields = ['category']
-    search_filter = ['name']
+    search_fields = ['name']
 
 
 
@@ -27,7 +27,7 @@ class TableApiView(ModelViewSet):
     permission_classes = [IsOwnerOrAdmin]
     filter_backends = (DjangoFilterBackend,filters.SearchFilter, filters.OrderingFilter)
     ordering_fields = ['id']
-    search_filter = ['name']
+    search_fields = ['name']
 
 class CategoryApiView(ModelViewSet):
     serializer_class = CategorySerializer
@@ -43,8 +43,9 @@ class OrderApiView(ModelViewSet):
     queryset  = Order.objects.all()
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAdminDelete]
-    filter_backends = (DjangoFilterBackend, filters.OrderingFilter)
+    filter_backends = (DjangoFilterBackend,filters.SearchFilter, filters.OrderingFilter)
     ordering_fields = ['-id']
+    search_fields = ['id']
 
 
 class OrderItemApiView(ModelViewSet):
@@ -52,5 +53,5 @@ class OrderItemApiView(ModelViewSet):
     queryset = OrderItem.objects.all()
     authentication_classes = [BasicAuthentication]
     permission_classes = [BasePermission]
-    filter_backends = (DjangoFilterBackend, filters.OrderingFilter)
-    ordering_fields = ['order']
+    filter_backends = (DjangoFilterBackend,filters.SearchFilter, filters.OrderingFilter)
+    search_fields = ['order__id']

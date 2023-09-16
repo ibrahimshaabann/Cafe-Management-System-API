@@ -13,6 +13,7 @@ class Benefits(models.Model):
         return f"{self.id}"
 
     class Meta:
+        ordering = ['-id']
         verbose_name_plural = "الأرباح"
 
 
@@ -24,6 +25,7 @@ class Costs(models.Model):
     benefit = models.ForeignKey(Benefits, on_delete=models.SET_NULL, null=True)
     
     class Meta:
+        ordering = ['-id']
         verbose_name_plural = "المصاريف"
 
    
