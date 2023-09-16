@@ -23,6 +23,7 @@ class CostsApiView(ModelViewSet):
     permission_classes = [IsUserPOST]
     filterset_class = None
     filter_backends = (SearchFilter, DjangoFilterBackend,)
+    # filter_backends = (SearchFilter)
     search_fields = ['description']
 
 
