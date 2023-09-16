@@ -22,7 +22,7 @@ class Costs(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     date = models.DateTimeField(verbose_name="وقت الدفع", auto_now_add=True)
     user = models.ForeignKey(User, verbose_name='مسئول الشيفت', on_delete=models.SET_NULL, null=True)
-    benefit = models.ForeignKey(Benefits, on_delete=models.SET_NULL, null=True)
+    benefit = models.ForeignKey(Benefits, on_delete=models.SET_NULL, null=True, blank=True)
     
     class Meta:
         ordering = ['-id']

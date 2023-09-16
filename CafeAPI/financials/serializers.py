@@ -9,7 +9,8 @@ class BenefitsSerializer(serializers.ModelSerializer):
 
 
 class CostsSerializer(serializers.ModelSerializer):
-
+    benefit = Benefits.objects.filter(id=2).first()
+    print(benefit)
     class Meta:
         model = Costs
-        fields = '__all__'
+        fields = ['description', 'price']
