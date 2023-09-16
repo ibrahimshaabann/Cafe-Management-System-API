@@ -62,8 +62,8 @@ class Employee(Person):
     class Meta:
         verbose_name_plural = "الموظف"
 
-    def __str__(self) -> str:
-        return super.__str__() 
+    # def __str__(self) -> str:
+        # return super.__str__() 
     
     
 class SalaryDeduction(models.Model):

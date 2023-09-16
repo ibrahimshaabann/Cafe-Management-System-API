@@ -1,6 +1,7 @@
 from django.db.models.signals import post_save,pre_save,pre_delete,post_delete
 from django.dispatch import receiver
 from .models import *
+from human_resources.models import Shift
 
 @receiver(pre_save,sender=OrderItem)
 def OrderItem_pre_save(sender, instance, **kwargs):
@@ -40,3 +41,4 @@ def update_total_price_on_delete(sender, instance, **kwargs):
     instance.order.save()
  
     
+# @receiver(post_save,sender = Order)
