@@ -19,7 +19,7 @@ class BenefitsApiView(ModelViewSet):
     # filter_backends = (DjangoFilterBackend)
     
 
-class testpagination(PageNumberPagination):
+class standardPagination(PageNumberPagination):
     page_size = 20
     page_query_param = 'page_size'
     max_page_size = 30
@@ -31,7 +31,7 @@ class CostsApiView(ModelViewSet):
     filterset_class = CostsFilter
     filter_backends = (SearchFilter, DjangoFilterBackend, )
     search_fields = ['description']
-    pagination_class = testpagination
+    pagination_class = standardPagination
 
     def get_queryset(self):
         queryset = self.queryset
