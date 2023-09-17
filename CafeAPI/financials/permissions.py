@@ -13,7 +13,7 @@ class AdminOnly(permissions.BasePermission):
             return False
         
         if request.method in ('POST', 'GET', 'PATCH', 'PUT', 'DELETE'):
-            return request.user.role in [User.Roles.ADMIN, User.Roles.SUPERUSER]
+            return request.user.role in [User.Roles.ADMIN]
         
         else: # if request.user is a normal user
             return False
@@ -30,7 +30,7 @@ class IsUserPOST(permissions.BasePermission):
             return True
 
         # Check if the user has the admin or superuser role
-        if request.user.role in [User.Roles.ADMIN, User.Roles.SUPERUSER]:
+        if request.user.role in [User.Roles.ADMIN]:
             return True
 
         return False

@@ -1,9 +1,10 @@
 from django.db.models.signals import post_save,pre_save,pre_delete,post_delete
 from django.dispatch import receiver
 from .models import *
+from human_resources.models import Shift
 
 @receiver(pre_save,sender=OrderItem)
-def OrderItem_post_save(sender, instance, **kwargs):
+def OrderItem_pre_save(sender, instance, **kwargs):
     instance.price = instance.item.price * instance.quantity
     previous_quantity = 0
 

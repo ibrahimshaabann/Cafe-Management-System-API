@@ -14,7 +14,7 @@ class IsOwnerOrAdmin(permissions.BasePermission):
             return True
 
         # Check if the user has the admin or superuser role
-        if request.user.role in [User.Roles.ADMIN, User.Roles.SUPERUSER]:
+        if request.user.role in [User.Roles.ADMIN]:
             return True
 
         return False
@@ -31,7 +31,7 @@ class IsAdminDelete(permissions.BasePermission):
             return True
 
         # Check if the user has the admin or superuser role
-        if request.user.role in [User.Roles.ADMIN, User.Roles.SUPERUSER]:
+        if request.user.role in [User.Roles.ADMIN]:
             return True
 
         return False

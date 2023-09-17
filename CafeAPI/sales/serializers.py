@@ -34,3 +34,12 @@ class OrderItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderItem
         fields = '__all__'
+
+
+class LastActiveOrderSerializer(serializers.ModelSerializer):
+    OrderItem = OrderItemSerializer(many=True
+                                    )
+    class Meta:
+        model = Order
+        # fields = ['id', 'date_time', 'total_price','table']
+        fields = '__all__'
