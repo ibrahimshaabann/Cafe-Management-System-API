@@ -65,3 +65,8 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f"{self.quantity} {self.item.name}"
+
+
+class active_order(models.Model):
+    order = models.ForeignKey(Order,on_delete=models.CASCADE)
+    table = models.ForeignKey(Table,on_delete=models.CASCADE)

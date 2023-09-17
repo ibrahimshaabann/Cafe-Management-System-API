@@ -41,4 +41,3 @@ def update_total_price_on_delete(sender, instance, **kwargs):
     instance.order.save()
  
     
-# @receiver(post_save,sender = Order)
