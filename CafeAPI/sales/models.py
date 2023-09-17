@@ -58,7 +58,7 @@ class OrderItem(models.Model):
     order = models.ForeignKey(Order,related_name='order_items', on_delete = models.CASCADE ,verbose_name="اوردر")
     item = models.ForeignKey(Menu, null=True,on_delete=models.DO_NOTHING,verbose_name="الصنف")
     quantity = models.IntegerField("كميه")
-    price = models.DecimalField(verbose_name="سعر", max_digits=5, decimal_places=2, default=0.00)
+    price = models.DecimalField(verbose_name="سعر", max_digits=5, decimal_places=2, default=0.00, editable=False)
 
     class Meta:
         verbose_name_plural = "عنصر الاوردر"
