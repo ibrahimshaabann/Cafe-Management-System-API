@@ -47,7 +47,7 @@ class Shift(models.Model):
 
     class Meta:
         verbose_name_plural = "الشيفت"
-        ordering = ['-id'] # ك لله يبعيد
+        ordering = ['-id'] 
 
    
     def __str__(self) :

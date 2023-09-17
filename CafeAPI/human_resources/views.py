@@ -23,9 +23,10 @@ class EmployeeViewSet(ModelViewSet):
     serializer_class = EmployeeSerializer
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAuthenticated, SalOrEmpAccessPermission]
-    filter_backends = (SearchFilter, OrderingFilter)
+    filter_backends = (SearchFilter, OrderingFilter,)
     search_fields = ['phone_no','fname', 'lname']
     ordering_fields = ['-id']
+
 
 class ShiftViewSet(ModelViewSet):
     queryset = Shift.objects.all()
@@ -44,7 +45,7 @@ class AttendenceViewSet(ModelViewSet):
     serializer_class = AttendanceSerializer
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAuthenticated, ShiftOrAttendencePermission]   
-    filter_backends = (SearchFilter)
+    filter_backends = (SearchFilter,)
     search_fields = ['employee_attended__fname', 'employee_attended__lname']
     # ordering_fields = None
 
