@@ -31,12 +31,12 @@ class CostsApiView(ModelViewSet):
     filterset_class = CostsFilter
     filter_backends = (SearchFilter, DjangoFilterBackend, )
     search_fields = ['description']
+    pagination_class = testpagination
 
     def get_queryset(self):
         queryset = self.queryset
         print(queryset.values())
         return queryset
 
-    pagination_class = testpagination
     
     
