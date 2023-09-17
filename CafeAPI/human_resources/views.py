@@ -32,7 +32,7 @@ class ShiftViewSet(ModelViewSet):
     serializer_class = ShiftSerializer
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAuthenticated, ShiftOrAttendencePermission]   
-    filter_backends = (SearchFilter)
+    filter_backends = (SearchFilter,)
 
     # Search for shifts belonging to a specific user
     search_fields = ['user__username']
