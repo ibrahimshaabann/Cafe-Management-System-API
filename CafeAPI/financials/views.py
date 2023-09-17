@@ -8,6 +8,8 @@ from rest_framework.filters import  SearchFilter
 from rest_framework.permissions import BasePermission
 from .permissions import AdminOnly,IsUserPOST
 from .filters import CostsFilter
+from rest_framework.pagination import PageNumberPagination
+
 
 class BenefitsApiView(ModelViewSet):
     serializer_class = BenefitsSerializer
@@ -17,6 +19,10 @@ class BenefitsApiView(ModelViewSet):
     # filter_backends = (DjangoFilterBackend)
     
 
+class testpagination(PageNumberPagination):
+    page_size = 20
+    page_query_param = 'page_size'
+    max_page_size = 30
 class CostsApiView(ModelViewSet):
     serializer_class = CostsSerializer
     queryset = Costs.objects.all()
@@ -31,4 +37,6 @@ class CostsApiView(ModelViewSet):
         print(queryset.values())
         return queryset
 
+    pagination_class = testpagination
+    
     
