@@ -41,8 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'authentication',
+    'rest_framework_simplejwt',
     'django_extensions',
+    'authentication',
     'financials',
     'sales',
     'human_resources',
@@ -50,7 +51,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',  # Place CorsMiddleware before other middleware
     'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -80,9 +80,9 @@ TEMPLATES = [
     },
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    'http://192.168.0.95:8080',  # Replace with your Vue.js frontend URL
-]
+# CORS_ALLOWED_ORIGINS = [
+#     'http://192.168.0.95:8086',  # Replace with your Vue.js frontend URL
+# ]
 
 WSGI_APPLICATION = 'CafeAPI.wsgi.application'
 
@@ -90,19 +90,19 @@ WSGI_APPLICATION = 'CafeAPI.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
-}
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'cafemanagementsystemapi',
-#         'USER': 'i',
-#         'PASSWORD': '1',
-#         'HOST': 'localhost',  # Change to your PostgreSQL server's host
-#         'PORT': '5432',      # Change to your PostgreSQL server's port
-#     }
+#     "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 # }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'cafemanagementsystemapi',
+        'USER': 'i',
+        'PASSWORD': '1',
+        'HOST': 'localhost',  # Change to your PostgreSQL server's host
+        'PORT': '5432',      # Change to your PostgreSQL server's port
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -149,19 +149,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'authentication.User'
 
-# REST_FRAMEWORK = {
-#     'DEFAULT_AUTHENTICATION_CLASSES': [
-#         'rest_framework.authentication.BasicAuthentication',
-#         'rest_framework.authentication.SessionAuthentication',
-#         'rest_framework_simplejwt.authentication.JWTAuthentication',
-#     ]
-# }
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
 
 
 from datetime import timedelta
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=500),
     # 'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
     # 'SLIDING_TOKEN_LIFETIME': timedelta(days=1),
     # 'SLIDING_TOKEN_REFRESH_LIFETIME_GRACE_PERIOD': timedelta(days=1),
@@ -176,9 +175,10 @@ SIMPLE_JWT = {
 }
 
 CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOWED_ORIGINS = [
+#     'http://localhost:8086'
+# ]
 
-
-CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_METHODS = [
     'DELETE',
     'GET',
@@ -188,13 +188,12 @@ CORS_ALLOW_METHODS = [
     'PUT',
 ]
 CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
+    "accept",
+    "authorization",
+    "content-type",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+    "ngrok-skip-browser-warning"
 ]
+

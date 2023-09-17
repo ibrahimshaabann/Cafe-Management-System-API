@@ -11,8 +11,8 @@ from .permissions import CustomerAccessPermission, ShiftOrAttendencePermission, 
 class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
-    authentication_classes = [BasicAuthentication]
-    permission_classes = [IsAuthenticated, CustomerAccessPermission]
+    # authentication_classes = [BasicAuthentication]
+    # permission_classes = [IsAuthenticated, CustomerAccessPermission]
     filter_backends = (SearchFilter,)
     search_fields = ['phone_no','fname', 'lname']
     ordering_fields = ['id']
