@@ -37,6 +37,7 @@ class OrderItemSerializer(serializers.ModelSerializer):
 
 
 class LastActiveOrderSerializer(serializers.ModelSerializer):
+    order_items = OrderItemSerializer(many=True)
     class Meta:
         model = Order
         # fields = ['id', 'date_time', 'total_price','table']
