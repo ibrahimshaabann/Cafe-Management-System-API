@@ -21,7 +21,7 @@ urlpatterns = [
     path('authentication/', include('authentication.urls')),
     path('sales/',include('sales.urls')),
     path('human_resources/',include('human_resources.urls')),
-    path('funancials/',include('financials.urls')),
+    path('financials/',include('financials.urls')),
 ]
 
 
