@@ -78,19 +78,8 @@ TEMPLATES = [
     },
 ]
 
-# CORS_ALLOWED_ORIGINS = [
-#     'http://192.168.0.95:8086',  # Replace with your Vue.js frontend URL
-# ]
-
 WSGI_APPLICATION = 'CafeAPI.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
