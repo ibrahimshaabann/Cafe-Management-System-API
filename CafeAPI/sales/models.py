@@ -1,4 +1,5 @@
 from django.db import models
+from financials.models import Benefits
 from human_resources.models import Customer,Shift
 # Create your models here.
 
@@ -43,7 +44,7 @@ class Order(models.Model):
     shift = models.ForeignKey(Shift,related_name='order_set', null=True, on_delete=models.SET_NULL, verbose_name="شيفت")
     total_price = models.DecimalField("اجمالي السعر", max_digits=7, decimal_places=2, default=0.00)
     is_active = models.BooleanField(verbose_name="نشط",default=True)
-    # benefit_id = models.ForeignKey(Benefits, on_delete=models.SET_NULL, null=True, verbose_name="رقم فتره الربح")
+    benefit = models.ForeignKey(Benefits, on_delete=models.SET_NULL, null=True,blank=True, verbose_name="رقم فتره الربح")
     customer = models.ForeignKey(Customer,on_delete=models.SET_NULL,null=True,blank=True,verbose_name="العميل")
     class Meta:
         verbose_name_plural = "الاوردرات"

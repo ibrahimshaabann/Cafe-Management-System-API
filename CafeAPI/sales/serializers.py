@@ -1,4 +1,6 @@
 from rest_framework import serializers
+
+from financials.models import Benefits
 from .models import Menu,Table,Category,Order,OrderItem
 
 class MenuSerializer(serializers.ModelSerializer):
@@ -22,11 +24,14 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class OrderSerializer(serializers.ModelSerializer):
-
+    # benefit = serializers.PrimaryKeyRelatedField(read_only=True, required = False)
+    # def create(self, validated_data):
+        # validated_data['benefit'] = Benefits.objects.first()
+        # return super().create(validated_data)
+    
     class Meta:
         model = Order
-        fields = '__all__'
-
+        fields = ('__all__')
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
