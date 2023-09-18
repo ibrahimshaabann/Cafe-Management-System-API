@@ -65,4 +65,3 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f"{self.quantity} {self.item.name}"
-g

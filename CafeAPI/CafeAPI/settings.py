@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -95,11 +94,11 @@ WSGI_APPLICATION = 'CafeAPI.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cafemanagementsystemapi',
-        'USER': 'i',
-        'PASSWORD': '1',
+        'NAME': 'cafeapi',
+        'USER': 'cafe',
+        'PASSWORD': 'zeyad',
         'HOST': 'localhost',  # Change to your PostgreSQL server's host
-        'PORT': '5432',      # Change to your PostgreSQL server's port
+        'PORT': '',      # Change to your PostgreSQL server's port
     }
 }
 
