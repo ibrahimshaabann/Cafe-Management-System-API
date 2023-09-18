@@ -1,6 +1,7 @@
 from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 from .models import Costs, Benefits
+from sales.models import Order
 from django.db.models import Sum
 
 @receiver(pre_save, sender=Costs)
@@ -20,3 +21,32 @@ def update_costs(sender, instance, **kwargs):
     instance.benefit.benefit_costs = total_costs if total_costs is not None else 0.00
     instance.benefit.net_profit = instance.benefit.benefit - instance.benefit.benefit_costs
     instance.benefit.save()
+
+@receiver(pre_save, sender= Order)
+def set_order_benefitobj_to_last_benefit(sender, instance, **kwargs):
+        latest_benefit_record = Benefits.objects.first() 
+        """
+        if the latest_benefit_record is returned:   
+            we set the benefit foreign key of order to the newest benefit record
+        else (if returned latest_benefit_record = None): --> that means thad we does not have any records in the Beneifts table
+            create a new benefit record
+                -> Benefits.objects.create() will return the new created 
+                   and assigns its value to instance.benefit () --> benefit obj foreign key of our order instance 
+        """
+        instance.benefit = latest_benefit_record if latest_benefit_record is not None else Benefits.objects.create()
+        instance.benefit.save()
+
+
+@receiver(post_save, sender= Order)
+def update_benefit_record_benefits(sender, instance, **kwargs):
+        total_orders_profit = Order.objects.filter(benefit=instance.benefit).aggregate(total=Sum('total_price'))['total'] 
+        benefit_record_to_be_updated = instance.benefit
+        benefit_record_to_be_updated.benefit = total_orders_profit if total_orders_profit is not None else 0.00
+        benefit_record_to_be_updated.net_profit = instance.benefit.benefit - instance.benefit.benefit_costs
+        benefit_record_to_be_updated.save()
+
+
+
+
+
+

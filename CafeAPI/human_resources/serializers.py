@@ -30,7 +30,7 @@ class ShiftSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Shift
-        fields = ['login_time', 'logout_time', 'user']
+        fields = ['login_time', 'logout_time', 'user', 'benefits']
 
 
 
