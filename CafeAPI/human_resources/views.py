@@ -15,7 +15,7 @@ class CustomerViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated, CustomerAccessPermission]
     filter_backends = (SearchFilter,)
     search_fields = ['phone_no','fname', 'lname']
-    # ordering_fields = ['-id']
+    ordering_fields = ['id']
 
 
 class EmployeeViewSet(ModelViewSet):
@@ -25,7 +25,7 @@ class EmployeeViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated, SalOrEmpAccessPermission]
     filter_backends = (SearchFilter, OrderingFilter,)
     search_fields = ['phone_no','fname', 'lname']
-    ordering_fields = ['-id']
+    ordering_fields = ['fname']
 
 
 class ShiftViewSet(ModelViewSet):
@@ -37,7 +37,7 @@ class ShiftViewSet(ModelViewSet):
 
     # Search for shifts belonging to a specific user
     search_fields = ['user__username']
-    # ordering_fields = None
+    ordering_fields = ['benefits']
 
 
 class AttendenceViewSet(ModelViewSet):
@@ -47,7 +47,7 @@ class AttendenceViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated, ShiftOrAttendencePermission]   
     filter_backends = (SearchFilter,)
     search_fields = ['employee_attended__fname', 'employee_attended__lname']
-    # ordering_fields = None
+    ordering_fields = ['out_time']
 
 
 class SalaryDeductionViewSet(ModelViewSet):
@@ -56,5 +56,5 @@ class SalaryDeductionViewSet(ModelViewSet):
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAuthenticated, SalOrEmpAccessPermission]
     # filter_backends = None
-    # ordering_fields = None
+    ordering_fields = ['id']
     

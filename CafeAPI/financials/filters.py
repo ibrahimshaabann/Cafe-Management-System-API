@@ -2,8 +2,10 @@ import django_filters
 from .models import Costs
 
 class CostsFilter(django_filters.FilterSet):
-    day = django_filters.DateFilter(field_name='date', lookup_expr='day')
+    # field_name refers to the attribute in the model
+    price_in_URL = django_filters.NumberFilter(field_name='price', lookup_expr='gt')
+    date_in_URL = django_filters.DateTimeFilter(field_name='date', lookup_expr='month')
 
     class Meta:
         model = Costs
-        fields= ['date']
+        fields = ['price_in_URL', 'date_in_URL']
