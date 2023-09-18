@@ -1,25 +1,6 @@
 from rest_framework import permissions
 from .models import User
 
-# class IsAdminOrReadOnly(permissions.BasePermission):
-#     """
-#     Custom permission to allow read-only access to all users
-#     but full access to admins.
-#     """
-
-#     def has_permission(self, request, view):
-#         if request.user.is_staff:
-#             # Admins have full access (GET, POST, PATCH, PUT, DELETE)
-#             return True
-#         return request.method in permissions.SAFE_METHODS
-
-#     def has_object_permission(self, request, view, obj):
-#         if request.user.is_staff:
-#             # Admins have full access to any object
-#             return True
-#         return request.method in permissions.SAFE_METHODS
-
-
 class IsAdminOrReadOnly(permissions.BasePermission):
     """
     Custom permission to allow read-only access to all users
