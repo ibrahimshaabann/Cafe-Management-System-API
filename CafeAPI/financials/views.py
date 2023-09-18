@@ -16,13 +16,13 @@ class BenefitsApiView(ModelViewSet):
     queryset = Benefits.objects.all()
     authentication_classes = [BasicAuthentication]
     permission_classes = [AdminOnly]
-    # filter_backends = (DjangoFilterBackend)
     
 
 class standardPagination(PageNumberPagination):
     page_size = 20
     page_query_param = 'page_size'
     max_page_size = 30
+    
 class CostsApiView(ModelViewSet):
     serializer_class = CostsSerializer
     queryset = Costs.objects.all()
