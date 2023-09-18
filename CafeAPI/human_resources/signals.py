@@ -31,11 +31,18 @@ def update_salary_deductions(sender, instance, **kwargs):
 
 @receiver(post_save ,sender = Order)
 def get_shift_benefits(sender, instance, **kwargs):
-    print("*"*20)
     shift_obj = instance.shift
     shift_orders = shift_obj.order_set.all()
     total_price = sum(order.total_price for order in shift_orders)  
-    print(total_price)
+    shift_obj.benefits = total_price  
+    shift_obj.save()
+
+
+@receiver(post_delete ,sender = Order)
+def get_shift_benefits(sender, instance, **kwargs):
+    shift_obj = instance.shift
+    shift_orders = shift_obj.order_set.all()
+    total_price = sum(order.total_price for order in shift_orders)  
     shift_obj.benefits = total_price  
     shift_obj.save()
 

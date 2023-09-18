@@ -10,9 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-import os
 from pathlib import Path
-import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -157,6 +155,7 @@ REST_FRAMEWORK = {
 }
 
 
+
 from datetime import timedelta
 
 SIMPLE_JWT = {
@@ -196,4 +195,26 @@ CORS_ALLOW_HEADERS = [
     "x-requested-with",
     "ngrok-skip-browser-warning"
 ]
+
+
+GRAPH_MODELS ={
+    'all_applications': False,
+    'group_models': True,
+
+      'all_models': [
+        'authentication.User',  
+        'human_resources.Shift',
+        'human_resources.Employee',
+        'human_resources.SalaryDeduction',
+        'human_resources.Attendence', 
+        'financials.Costs',
+        'financials.Benefits',
+        'sales.Table',
+        'sales.Menu',
+        'sales.Category',
+        'sales.Order',
+        'sales.OrderItem',
+    ],
+     }
+
 
