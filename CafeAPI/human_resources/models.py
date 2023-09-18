@@ -37,14 +37,6 @@ class Shift(models.Model):
                               blank=True, 
                               verbose_name="مسئول الشيفت ")
 
-    # def get_shift_benefits(self):
-    #     shift_orders = self.order_set.all()
-    #     # Calculate the total price from orders and update benefits
-    #     total_price = sum(order.total_price for order in shift_orders)  
-              
-    #     self.benefits = total_price  
-    #     self.save()
-
     class Meta:
         verbose_name_plural = "الشيفت"
         ordering = ['-id'] 
@@ -62,9 +54,6 @@ class Employee(Person):
     class Meta:
         ordering = ['-id']
         verbose_name_plural = "الموظف"
-
-    # def __str__(self) -> str:
-        # return super.__str__() 
     
     
 class SalaryDeduction(models.Model):
@@ -80,25 +69,6 @@ class SalaryDeduction(models.Model):
     def __str__(self):
         return f"خصم من {self.employee} بمبلغ {self.amount}"
 
-
-    # def save(self, *args, **kwargs):
-        
-    #     super().save(*args, **kwargs)
-    #     # Update the deductions field in the associated employees object
-    #     total_deductions = SalaryDeduction.objects.filter(employee=self.employee).aggregate(total_deductions=models.Sum('amount'))['total_deductions']
-    #     employee = self.employee
-    #     employee.deductions = total_deductions if total_deductions else 0
-    #     employee.save()
-
-# @receiver(post_delete, sender=SalaryDeduction)
-# def update_salary_deductions(sender, instance, **kwargs):
-
-# # Update the deductions field in the associated Employees object
-
-#     employee = instance.employee
-#     total_deductions = SalaryDeduction.objects.filter(employee=employee).aggregate(total_deductions=models.Sum('amount'))['total_deductions']
-#     employee.deductions = total_deductions if total_deductions else 0
-#     employee.save()
 
 class Attendence(models.Model):
     employee_attended = models.ForeignKey(Employee, on_delete=models.CASCADE,null=True, verbose_name='الموظف',)
