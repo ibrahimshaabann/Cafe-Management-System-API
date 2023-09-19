@@ -17,21 +17,23 @@ The Coffee Management System API is a comprehensive backend system that handles 
 - **User Management**: Create and manage user accounts with different roles, such as admin, staff, and manager.
 - **JWT Authentication**: Securely authenticate users and generate JWT tokens for API access.
 - **User Roles**: Assign specific permissions and access levels based on user roles.
+   - #### Roles included in our project: Admin, User.  
 
 ### Financials
 
-- **Cost Tracking**: Record and manage various costs incurred in the coffee shop, including inventory, utilities, and employee salaries.
-- **Benefits Management**: Monitor benefits and profits over time.
+- **Cost Tracking**: Record and manage various costs incurred in the coffee shop allow user to add costs during his shift.
+- **Benefits Management**: Monitor benefits and profits over time bt calculating ptofits, costs and net profits.
 - **Net Profit Calculation**: Automatically calculate net profits by subtracting costs from benefits.
-- **Shift Benefits**: Track benefits specific to each shift.
+- **Shift Benefits**: Track benefits specific to each shift by adding the benefits oll orders processed in that shift.
 - **Order Total Updates**: Automatically update order total prices based on menu items and quantities.
 
 ### Human Resources
 
-- **Employee Management**: Maintain employee records, including personal information and contact details.
+- **Employee Management**: Maintain employee records, including personal information, salary and contact details.
+   - #### Note that we provied some epmloyees with user accounts, only the ones respnsible for shifts. 
 - **Salary Management**: Record and manage employee salaries, and deductions.
-- **Attendance Records**: Keep track of employee attendance and leaves.
-- **Shift Management**: Record shift start and end times for employees.
+- **Attendance Records**: Keep track of employee attendance and leaves times.
+- **Shift Management**: Record user shift start and end times for employees.
 - **Customer Data**: Store customer information and preferences for better service.
 
 ### Sales
@@ -41,7 +43,6 @@ The Coffee Management System API is a comprehensive backend system that handles 
 - **Menu and Categories**: Organize menu items into categories for easy access.
 - **Table Management**: Assign tables to orders for efficient service.
 
-Certainly! Here's the "Getting Started" section of the README.md in full Markdown code:
 
 ## Getting Started
 
