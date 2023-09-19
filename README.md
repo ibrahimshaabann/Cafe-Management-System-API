@@ -43,6 +43,11 @@ The Coffee Management System API is a comprehensive backend system that handles 
 - **Menu and Categories**: Organize menu items into categories for easy access.
 - **Table Management**: Assign tables to orders for efficient service.
 
+## Entity Relationship diagram 
+
+![ERD](/home/new/Downloads/ERD
+
+Here is a diagram that illustrates the overall system architecture of the Coffee Management System API.
 
 ## Getting Started
 
