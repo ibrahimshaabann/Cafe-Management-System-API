@@ -234,6 +234,14 @@ You can use these endpoints to interact with the Coffee Management System API.
 - Vue3
 - Tailwind CSS: A utility-first CSS framework for designing user interfaces.
 - Axios: A promise-based HTTP client for making API requests.
+---
+## Contributors
 
-These technologies are used to develop both the frontend and backend components of the Coffee Management System API.
+**Backend:**
+- Ibrahim Shaaban
+- Zeyad Mohammed
 
+**Frontend:**
+- Marwan Maher
+
+---
