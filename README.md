@@ -44,9 +44,7 @@ The Coffee Management System API is a comprehensive backend system that handles 
 - **Table Management**: Assign tables to orders for efficient service.
 
 ## Entity Relationship diagram 
-
-![image](https://github.com/ibrahimshaabann/Cafe-Management-System-API/assets/73670927/b2fcf8e2-7c27-4ee3-b71c-7620247ab169)
-
+![Alt text]([image lin](https://i.ibb.co/rQhvVkc/Untitled-1.jpg))
 
 Here is a diagram that illustrates the overall system architecture of the Coffee Management System API.
 
