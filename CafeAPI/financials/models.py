@@ -4,7 +4,8 @@ from authentication.models import User
 
 class Benefits(models.Model):
     start_date = models.DateTimeField(verbose_name="تاريخ البدايه", auto_now_add=True)
-    end_date = models.DateTimeField(verbose_name="تاريخ االانتهاء", auto_now=True)
+    # end date it modified date, every time the record get updated, the date is modified ,because we setted it to auto_now = true
+    end_date = models.DateTimeField(verbose_name="تاريخ االانتهاء", auto_now=True) 
     benefit = models.DecimalField(max_digits=8, decimal_places=2, verbose_name="الربح", default=0.00)
     benefit_costs = models.DecimalField(max_digits=9, decimal_places=2, verbose_name="مصاريف الفتره", default=0.00)
     net_profit = models.DecimalField(max_digits=8, decimal_places=2, verbose_name="صافي الربح", default=0.00)

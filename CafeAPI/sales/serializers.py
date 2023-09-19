@@ -2,7 +2,7 @@ from rest_framework import serializers
 from financials.serializers import BenefitsSerializer
 from financials.models import Benefits
 from .models import Menu,Table,Category,Order,OrderItem
-
+from human_resources.serializers import ShiftSerializer
 class MenuSerializer(serializers.ModelSerializer):
     class Meta:
         model = Menu
@@ -44,7 +44,7 @@ class OrderSerializer(serializers.ModelSerializer):
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
-    
+    item = MenuSerializer()
     class Meta:
         model = OrderItem
         fields = '__all__'
@@ -52,6 +52,20 @@ class OrderItemSerializer(serializers.ModelSerializer):
 
 class LastActiveOrderSerializer(serializers.ModelSerializer):
     order_items = OrderItemSerializer(many=True)
+    # shift = ShiftSerializer()
     class Meta:
         model = Order
         fields = '__all__'
+
+    
+    # def get_order_items(self):
+    #     return self.order_items
+    
+    # def to_representation(self, instance):
+    #     representation = super().to_representation(instance)
+
+    #     order_items = self.get_order_items(instance)
+
+    #     representation['order_items'] = order_items
+
+    #     return representation

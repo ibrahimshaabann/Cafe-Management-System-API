@@ -26,8 +26,8 @@ class BenefitsApiView(ModelViewSet):
 class CostsApiView(ModelViewSet):
     serializer_class = CostsSerializer
     queryset = Costs.objects.all()
-    authentication_classes = [BasicAuthentication]
-    permission_classes = [IsUserPOST]
+    # authentication_classes = [BasicAuthentication]
+    # permission_classes = [IsUserPOST]
     filterset_class = CostsFilter
     filter_backends = (SearchFilter, DjangoFilterBackend, )
     search_fields = ['description']
