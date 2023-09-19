@@ -172,7 +172,7 @@ The API should now be accessible at `http://localhost:8000/`. You can use the Dj
 - `POST /sales/tables/`: Create a new table.
   >>> Roles: Admin
 - `GET /sales/tables/{id}/`: Retrieve details of a specific table.
-  >>> Roles: Admin
+  >>> Roles: Admin, User
 - `PUT /sales/tables/{id}/`: Update a specific table.
   >>> Roles: Admin
 - `DELETE /sales/tables/{id}/`: Delete a specific table.
@@ -188,26 +188,27 @@ The API should now be accessible at `http://localhost:8000/`. You can use the Dj
 - `DELETE /sales/categories/{id}/`: Delete a specific category.
   >>> Roles: Admin
 - `GET /sales/orders/`: List all orders.
-  >>> Roles: Admin
+  >>> Roles: Admin, User
 - `POST /sales/orders/`: Create a new order.
-  >>> Roles: Admin
+  >>> Roles: Admin, User
 - `GET /sales/orders/{id}/`: Retrieve details of a specific order.
-  >>> Roles: Admin
+  >>> Roles: Admin, User
 - `PUT /sales/orders/{id}/`: Update a specific order.
   >>> Roles: Admin
 - `DELETE /sales/orders/{id}/`: Delete a specific order.
   >>> Roles: Admin
 - `GET /sales/orderitems/`: List all order items.
-  >>> Roles: Admin
+  >>> Roles: Admin, User
 - `POST /sales/orderitems/`: Create a new order item.
   >>> Roles: Admin
 - `GET /sales/orderitems/{id}/`: Retrieve details of a specific order item.
-  >>> Roles: Admin
+  >>> Roles: Admin, User
 - `PUT /sales/orderitems/{id}/`: Update a specific order item.
   >>> Roles: Admin
 - `DELETE /sales/orderitems/{id}/`: Delete a specific order item.
-  >>> Roles: Admin
-
+  >>> Roles: Admin, User
+- `GET /sales/active_orders/`: List the last order in every table.
+ >>> Roles: Admin, User
 You can use these endpoints to interact with the Coffee Management System API.
 ### Technologies Used
 - **Django**: The backend framework used for building the API.
