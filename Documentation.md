@@ -101,114 +101,114 @@ The API should now be accessible at `http://localhost:8000/`. You can use the Dj
 
 #### Authentication
 - `POST /token/`: Obtain a JSON Web Token (JWT) for authentication by providing valid user credentials.
-   >>> Roles: User, Admin 
+   > Roles: User, Admin 
 - `POST /token/refresh/`: Refresh an expired JWT to obtain a new one.
-    >>> Roles: User, Admin
+    > Roles: User, Admin
 - `GET /authentication/users/`: List all users records.
-   >>> Roles: Admin
+   > Roles: Admin
 - `POST /authentication/users/`: Create a new user.
-   >>> Roles: Admin
+   > Roles: Admin
 - `GET /authentication/users/{id}/`: Retrieve details of a specific cost record.
-  >>> Roles: User, Admin
+  > Roles: User, Admin
 - `PUT /authentication/users/{id}/`: Update a specific cost record.
-  >>> Roles: Admin
+  > Roles: Admin
 - `DELETE /authentication/users/{id}/`: Delete a specific cost record.
-  >>> Roles: Admin
+  > Roles: Admin
 
 #### Financials
 - `GET /financials/costs/`: List all cost records.
-  >>> Roles: Admin
+  > Roles: Admin
 - `POST /financials/costs/`: Create a new cost record.
-  >>> Roles: User or Admin
+  > Roles: User or Admin
 - `GET /financials/costs/{id}/`: Retrieve details of a specific cost record.
-  >>> Roles: Admin   
+  > Roles: Admin   
 - `PUT /financials/costs/{id}/`: Update a specific cost record.
-  >>> Roles: Admin
+  > Roles: Admin
 - `DELETE /financials/costs/{id}/`: Delete a specific cost record.
-  >>> Roles: Admin
+  > Roles: Admin
 - `GET /financials/benefits/`: List all benefit records.
-  >>> Roles: Admin
+  > Roles: Admin
 - `POST /financials/benefits/`: Create a new benefit record.
-  >>> Roles: Admin
+  > Roles: Admin
 - `GET /financials/benefits/{id}/`: Retrieve details of a specific benefit record.
-  >>> Roles: Admin
+  > Roles: Admin
 - Note that neither Admin nor user are allowed to delete benefit object or update it.
 
 #### Human Resources
 - `GET /humanresources/employees/`: List all employee records.
-- >>> Roles: Admin
+- > Roles: Admin
 - `POST /humanresources/employees/`: Create a new employee record.
-   >>> Roles: Admin
+   > Roles: Admin
 - `GET /humanresources/employees/{id}/`: Retrieve details of a specific employee record.
-   >>> Roles: Admin
+   > Roles: Admin
 - `PUT /humanresources/employees/{id}/`: Update a specific employee record.
-  >>> Roles: Admin
+  > Roles: Admin
 - `DELETE /humanresources/employees/{id}/`: Delete a specific employee record.
-  >>> Roles: Admin
+  > Roles: Admin
 - `GET /humanresources/deductions/`: List all salary deductions records.
-  >>> Roles: Admin
+  > Roles: Admin
 - `POST /humanresources/deductions/`: Create a new salary deduction record.
-  >>> Roles: Admin
+  > Roles: Admin
 - `GET /humanresources/deductions/{id}/`: Retrieve details of a specific salary deduction record.
-  >>> Roles: Admin
+  > Roles: Admin
 - `PUT /humanresources/deductions/{id}/`: Update a specific salary deduction record.
-  >>> Roles: Admin
+  > Roles: Admin
 - `DELETE /humanresources/deductions/{id}/`: Delete a specific salary deduction record.
-  >>> Roles: Admin
+  > Roles: Admin
 
 #### Sales
 - `GET /sales/menu/`: List all menu items.
-  >>> Roles: Admin, User
+  > Roles: Admin, User
 - `POST /sales/menu/`: Create a new menu item.
-  >>> Roles: Admin
+  > Roles: Admin
 - `GET /sales/menu/{id}/`: Retrieve details of a specific menu item.
-  >>> Roles: Admin, User
+  > Roles: Admin, User
 - `PUT /sales/menu/{id}/`: Update a specific menu item.
-  >>> Roles: Admin, User
+  > Roles: Admin, User
 - `DELETE /sales/menu/{id}/`: Delete a specific menu item.
-  >>> Roles: Admin
+  > Roles: Admin
 - `GET /sales/tables/`: List all tables.
-  >>> Roles: Admin, User
+  > Roles: Admin, User
 - `POST /sales/tables/`: Create a new table.
-  >>> Roles: Admin
+  > Roles: Admin
 - `GET /sales/tables/{id}/`: Retrieve details of a specific table.
-  >>> Roles: Admin, User
+  > Roles: Admin, User
 - `PUT /sales/tables/{id}/`: Update a specific table.
-  >>> Roles: Admin
+  > Roles: Admin
 - `DELETE /sales/tables/{id}/`: Delete a specific table.
-  >>> Roles: Admin
+  > Roles: Admin
 - `GET /sales/categories/`: List all categories.
-  >>> Roles: Admin
+  > Roles: Admin
 - `POST /sales/categories/`: Create a new category.
-  >>> Roles: Admin
+  > Roles: Admin
 - `GET /sales/categories/{id}/`: Retrieve details of a specific category.
-  >>> Roles: Admin
+  > Roles: Admin
 - `PUT /sales/categories/{id}/`: Update a specific category.
-  >>> Roles: Admin
+  > Roles: Admin
 - `DELETE /sales/categories/{id}/`: Delete a specific category.
-  >>> Roles: Admin
+  > Roles: Admin
 - `GET /sales/orders/`: List all orders.
-  >>> Roles: Admin, User
+  > Roles: Admin, User
 - `POST /sales/orders/`: Create a new order.
-  >>> Roles: Admin, User
+  > Roles: Admin, User
 - `GET /sales/orders/{id}/`: Retrieve details of a specific order.
-  >>> Roles: Admin, User
+  > Roles: Admin, User
 - `PUT /sales/orders/{id}/`: Update a specific order.
-  >>> Roles: Admin
+  > Roles: Admin
 - `DELETE /sales/orders/{id}/`: Delete a specific order.
-  >>> Roles: Admin
+  > Roles: Admin
 - `GET /sales/orderitems/`: List all order items.
-  >>> Roles: Admin, User
+  > Roles: Admin, User
 - `POST /sales/orderitems/`: Create a new order item.
-  >>> Roles: Admin
+  > Roles: Admin
 - `GET /sales/orderitems/{id}/`: Retrieve details of a specific order item.
-  >>> Roles: Admin, User
+  > Roles: Admin, User
 - `PUT /sales/orderitems/{id}/`: Update a specific order item.
-  >>> Roles: Admin
+  > Roles: Admin
 - `DELETE /sales/orderitems/{id}/`: Delete a specific order item.
-  >>> Roles: Admin, User
+  > Roles: Admin, User
 - `GET /sales/active_orders/`: List the last order in every table.
-  >>> Roles: Admin, User
+  > Roles: Admin, User
 
   
 You can use these endpoints to interact with the Coffee Management System API.
