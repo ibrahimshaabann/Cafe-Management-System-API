@@ -87,7 +87,6 @@ class Attendence(models.Model):
 class Customer(Person):
     def __str__(self) -> str:
         return  super().__str__()
-    
 
     class Meta:
         ordering = ['-id']

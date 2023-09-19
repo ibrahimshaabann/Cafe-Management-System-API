@@ -15,8 +15,6 @@ class CustomerSerializer(serializers.ModelSerializer):
             Here, i used this method to check the json object data sent
             from via the url
         """
-        print("#"*10 + "PUT OR PATCH json object data")
-        print(validated_data)
         return super().update(instance, validated_data)
     
     
@@ -30,7 +28,7 @@ class ShiftSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Shift
-        fields = ['login_time', 'logout_time', 'user']
+        fields = ['login_time', 'logout_time', 'user', 'benefits']
 
 
 

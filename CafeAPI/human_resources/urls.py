@@ -7,7 +7,7 @@ router.register(r'customers', CustomerViewSet,  basename='customers')
 router.register(r'attendence', AttendenceViewSet,  basename='attendence')
 router.register(r'shifts', ShiftViewSet,  basename='shifts')
 router.register(r'employees', EmployeeViewSet,  basename='employees')
-router.register(r'deductions', SalaryDeductionViewSet, basename='deductions')
+router.register(r'c', SalaryDeductionViewSet, basename='deductions')
 
 urlpatterns = [
     path('',include(router.urls)),

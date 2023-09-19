@@ -8,8 +8,9 @@ router.register(r'table', TableApiView)
 router.register(r'category', CategoryApiView)
 router.register(r'order', OrderApiView)
 router.register(r'orderitem', OrderItemApiView)
+router.register(r'active_orders', last_active_orders, basename='last-active-orders')
+
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('active/', last_active_orders, name='last-active-orders'),  
 ]

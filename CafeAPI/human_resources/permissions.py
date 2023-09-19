@@ -17,7 +17,6 @@ The IsAuthenticatedOrReadOnly will allow authenticated users to perform any requ
 
 This permission is suitable if you want to your API to allow read permissions to anonymous users, and only allow write permissions to authenticated users.
 
-
 """
 
 

@@ -12,6 +12,6 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = User.objects.all()
     authentication_classes = [JWTAuthentication]
+    # Note the or operator
     permission_classes = [IsAuthenticated, IsUserOwner | IsAdminOrReadOnly]
-    # filter_backends = None
 
