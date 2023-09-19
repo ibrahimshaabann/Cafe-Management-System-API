@@ -135,53 +135,78 @@ The API should now be accessible at `http://localhost:8000/`. You can use the Dj
 - Note that neither Admin nor user are allowed to delete benefit object or update it.
 
 #### Human Resources
-- `GET /humanresources/workers/`: List all worker records.
+- `GET /humanresources/employees/`: List all employee records.
 - >>> Roles: Admin
-- `POST /humanresources/workers/`: Create a new worker record.
+- `POST /humanresources/employees/`: Create a new employee record.
    >>> Roles: Admin
-- `GET /humanresources/workers/{id}/`: Retrieve details of a specific worker record.
+- `GET /humanresources/employees/{id}/`: Retrieve details of a specific employee record.
    >>> Roles: Admin
-- `PUT /humanresources/workers/{id}/`: Update a specific worker record.
+- `PUT /humanresources/employees/{id}/`: Update a specific employee record.
   >>> Roles: Admin
-- `DELETE /humanresources/workers/{id}/`: Delete a specific worker record.
+- `DELETE /humanresources/employees/{id}/`: Delete a specific employee record.
   >>> Roles: Admin
-- `GET /humanresources/salaries/`: List all salary records.
+- `GET /humanresources/deductions/`: List all salary deductions records.
   >>> Roles: Admin
-- `POST /humanresources/salaries/`: Create a new salary record.
+- `POST /humanresources/deductions/`: Create a new salary deduction record.
   >>> Roles: Admin
-- `GET /humanresources/salaries/{id}/`: Retrieve details of a specific salary record.
+- `GET /humanresources/deductions/{id}/`: Retrieve details of a specific salary deduction record.
   >>> Roles: Admin
-- `PUT /humanresources/salaries/{id}/`: Update a specific salary record.
+- `PUT /humanresources/deductions/{id}/`: Update a specific salary deduction record.
   >>> Roles: Admin
-- `DELETE /humanresources/salaries/{id}/`: Delete a specific salary record.
+- `DELETE /humanresources/deductions/{id}/`: Delete a specific salary deduction record.
   >>> Roles: Admin
 
 #### Sales
 - `GET /sales/menu/`: List all menu items.
+  >>> Roles: Admin, User
 - `POST /sales/menu/`: Create a new menu item.
+  >>> Roles: Admin
 - `GET /sales/menu/{id}/`: Retrieve details of a specific menu item.
+  >>> Roles: Admin, User
 - `PUT /sales/menu/{id}/`: Update a specific menu item.
+  >>> Roles: Admin, User
 - `DELETE /sales/menu/{id}/`: Delete a specific menu item.
+  >>> Roles: Admin
 - `GET /sales/tables/`: List all tables.
+  >>> Roles: Admin, User
 - `POST /sales/tables/`: Create a new table.
+  >>> Roles: Admin
 - `GET /sales/tables/{id}/`: Retrieve details of a specific table.
+  >>> Roles: Admin
 - `PUT /sales/tables/{id}/`: Update a specific table.
+  >>> Roles: Admin
 - `DELETE /sales/tables/{id}/`: Delete a specific table.
+  >>> Roles: Admin
 - `GET /sales/categories/`: List all categories.
+  >>> Roles: Admin
 - `POST /sales/categories/`: Create a new category.
+  >>> Roles: Admin
 - `GET /sales/categories/{id}/`: Retrieve details of a specific category.
+  >>> Roles: Admin
 - `PUT /sales/categories/{id}/`: Update a specific category.
+  >>> Roles: Admin
 - `DELETE /sales/categories/{id}/`: Delete a specific category.
+  >>> Roles: Admin
 - `GET /sales/orders/`: List all orders.
+  >>> Roles: Admin
 - `POST /sales/orders/`: Create a new order.
+  >>> Roles: Admin
 - `GET /sales/orders/{id}/`: Retrieve details of a specific order.
+  >>> Roles: Admin
 - `PUT /sales/orders/{id}/`: Update a specific order.
+  >>> Roles: Admin
 - `DELETE /sales/orders/{id}/`: Delete a specific order.
+  >>> Roles: Admin
 - `GET /sales/orderitems/`: List all order items.
+  >>> Roles: Admin
 - `POST /sales/orderitems/`: Create a new order item.
+  >>> Roles: Admin
 - `GET /sales/orderitems/{id}/`: Retrieve details of a specific order item.
+  >>> Roles: Admin
 - `PUT /sales/orderitems/{id}/`: Update a specific order item.
+  >>> Roles: Admin
 - `DELETE /sales/orderitems/{id}/`: Delete a specific order item.
+  >>> Roles: Admin
 
 You can use these endpoints to interact with the Coffee Management System API.
 ### Technologies Used
@@ -190,7 +215,6 @@ You can use these endpoints to interact with the Coffee Management System API.
 - **JWT Authentication**: JSON Web Tokens are used for secure user authentication.
 - **PostgreSQL**: The relational database management system used to store data.
 - **Python**: The programming language in which the application is developed.
-- **Git**: Version control system for tracking changes in the project.
-- **Docker**: Containerization technology used for deploying and running the application.
+- **Git Terminal**: Version control system for tracking changes in the project.
 
 
