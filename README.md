@@ -41,6 +41,8 @@ The Coffee Management System API is a comprehensive backend system that handles 
 - **Menu and Categories**: Organize menu items into categories for easy access.
 - **Table Management**: Assign tables to orders for efficient service.
 
+Certainly! Here's the "Getting Started" section of the README.md in full Markdown code:
+
 ## Getting Started
 
 To run the Coffee Management System API locally, follow these steps:
@@ -48,6 +50,52 @@ To run the Coffee Management System API locally, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/Coffee-Management-System-API.git
+   git clone https://github.com/ibrahimshaabann/Cafe-Management-System-API
    cd Coffee-Management-System-API
+   ```
+
+2. **Set up a virtual environment and install dependencies:**
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   pip install -r requirements.txt
+   ```
+
+3. **Configure your postgres database settings in `settings.py`:**
+
+   ```python
+   DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.mysql',
+           'NAME': 'your_database_name',
+           'USER': 'your_database_user',
+           'PASSWORD': 'your_database_password',
+           'HOST': 'your_database_host',
+           'PORT': 'your_database_port',
+       }
+   }
+   ```
+
+4. **Run database migrations:**
+
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+
+5. **Create a superuser account for admin access:**
+
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+6. **Start the development server:**
+
+   ```bash
+   python manage.py runserver
+   ```
+
+The API should now be accessible at `http://localhost:8000/`. You can use the Django admin panel to manage users, roles, and other data.
+
 
