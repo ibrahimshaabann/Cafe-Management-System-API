@@ -45,7 +45,8 @@ The Coffee Management System API is a comprehensive backend system that handles 
 
 ## Entity Relationship diagram 
 
-![ERD](/home/new/Downloads/ERD)
+![image](https://github.com/ibrahimshaabann/Cafe-Management-System-API/assets/73670927/b2fcf8e2-7c27-4ee3-b71c-7620247ab169)
+
 
 Here is a diagram that illustrates the overall system architecture of the Coffee Management System API.
 
