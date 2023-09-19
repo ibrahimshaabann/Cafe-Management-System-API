@@ -6,15 +6,17 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.authentication import BasicAuthentication
 from rest_framework.filters import  SearchFilter
 from rest_framework.permissions import BasePermission
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from .permissions import AdminOnly,IsUserPOST
 from .filters import CostsFilter
+
 # from rest_framework.pagination import PageNumberPagination
 
 
 class BenefitsApiView(ModelViewSet):
     serializer_class = BenefitsSerializer
     queryset = Benefits.objects.all()
-    authentication_classes = [BasicAuthentication]
+    authentication_classes = []
     permission_classes = [AdminOnly]
     
 
@@ -22,7 +24,7 @@ class BenefitsApiView(ModelViewSet):
 class CostsApiView(ModelViewSet):
     serializer_class = CostsSerializer
     queryset = Costs.objects.all()
-    authentication_classes = [BasicAuthentication]
+    authentication_classes = [JWTAuthentication]
     permission_classes = [IsUserPOST]
     filterset_class = CostsFilter
     filter_backends = (SearchFilter, DjangoFilterBackend, )

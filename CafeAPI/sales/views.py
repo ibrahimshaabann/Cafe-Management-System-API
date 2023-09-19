@@ -4,16 +4,17 @@ from .serializers import MenuSerializer,TableSerializer,CategorySerializer,Order
 from .permissions import IsOwnerOrAdmin,IsAdminDelete
 from rest_framework.viewsets import ModelViewSet, ViewSet
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.authentication import BasicAuthentication
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework import filters, status
 from rest_framework.permissions import BasePermission
+
 
 
 
 class MenuApiView(ModelViewSet):
     serializer_class = MenuSerializer
     queryset = Menu.objects.all()
-    authentication_classes = [BasicAuthentication]
+    authentication_classes = [JWTAuthentication]
     permission_classes = [IsOwnerOrAdmin]
     filter_backends = (DjangoFilterBackend,filters.SearchFilter, filters.OrderingFilter)
     ordering_fields = ['category']
@@ -24,7 +25,7 @@ class MenuApiView(ModelViewSet):
 class TableApiView(ModelViewSet):
     serializer_class = TableSerializer
     queryset = Table.objects.all()
-    authentication_classes = [BasicAuthentication]
+    authentication_classes = [JWTAuthentication]
     permission_classes = [IsOwnerOrAdmin]
     filter_backends = (DjangoFilterBackend,filters.SearchFilter, filters.OrderingFilter)
     ordering_fields = ['id']
@@ -33,7 +34,7 @@ class TableApiView(ModelViewSet):
 class CategoryApiView(ModelViewSet):
     serializer_class = CategorySerializer
     queryset = Category.objects.all()
-    authentication_classes = [BasicAuthentication]
+    authentication_classes = [JWTAuthentication]
     permission_classes = [IsOwnerOrAdmin]
     filter_backends = (DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter)
     ordering_fields = ['name']
@@ -42,7 +43,7 @@ class CategoryApiView(ModelViewSet):
 class OrderApiView(ModelViewSet):
     serializer_class = OrderSerializer
     queryset  = Order.objects.all()
-    authentication_classes = [BasicAuthentication]
+    authentication_classes = [JWTAuthentication]
     permission_classes = [IsAdminDelete]
     filter_backends = (DjangoFilterBackend,filters.SearchFilter, filters.OrderingFilter)
     ordering_fields = ['-id']
@@ -53,10 +54,11 @@ class OrderApiView(ModelViewSet):
 class OrderItemApiView(ModelViewSet):
     serializer_class = OrderItemSerializer
     queryset = OrderItem.objects.all()
-    authentication_classes = [BasicAuthentication]
+    authentication_classes = [JWTAuthentication]
     permission_classes = [BasePermission]
     filter_backends = (DjangoFilterBackend,filters.SearchFilter, filters.OrderingFilter)
     search_fields = ['order__id']
+
 
 class last_active_orders(ViewSet):
     permission_classes = [IsAdminDelete]
