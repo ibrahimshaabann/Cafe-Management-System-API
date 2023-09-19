@@ -208,7 +208,9 @@ The API should now be accessible at `http://localhost:8000/`. You can use the Dj
 - `DELETE /sales/orderitems/{id}/`: Delete a specific order item.
   >>> Roles: Admin, User
 - `GET /sales/active_orders/`: List the last order in every table.
- >>> Roles: Admin, User
+  >>> Roles: Admin, User
+
+  
 You can use these endpoints to interact with the Coffee Management System API.
 ### Technologies Used
 - **Django**: The backend framework used for building the API.
