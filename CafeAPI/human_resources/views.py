@@ -11,8 +11,8 @@ from .permissions import CustomerAccessPermission, ShiftOrAttendencePermission, 
 class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
-    # authentication_classes = [BasicAuthentication]
-    # permission_classes = [IsAuthenticated, CustomerAccessPermission]
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated, CustomerAccessPermission]
     filter_backends = (SearchFilter,)
     search_fields = ['phone_no','fname', 'lname']
     ordering_fields = ['id']
@@ -21,8 +21,8 @@ class CustomerViewSet(ModelViewSet):
 class EmployeeViewSet(ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
-    # authentication_classes = [BasicAuthentication]
-    # permission_classes = [IsAuthenticated, SalOrEmpAccessPermission]
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated, SalOrEmpAccessPermission]
     filter_backends = (SearchFilter, OrderingFilter,)
     search_fields = ['phone_no','fname', 'lname']
     ordering_fields = ['fname']
@@ -31,8 +31,8 @@ class EmployeeViewSet(ModelViewSet):
 class ShiftViewSet(ModelViewSet):
     queryset = Shift.objects.all()
     serializer_class = ShiftSerializer
-    # authentication_classes = [BasicAuthentication]
-    # permission_classes = [IsAuthenticated, ShiftOrAttendencePermission]   
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated, ShiftOrAttendencePermission]   
     filter_backends = (SearchFilter,)
 
     # Search for shifts belonging to a specific user
@@ -43,8 +43,8 @@ class ShiftViewSet(ModelViewSet):
 class AttendenceViewSet(ModelViewSet):
     queryset = Attendence.objects.all()
     serializer_class = AttendanceSerializer
-    # authentication_classes = [BasicAuthentication]
-    # permission_classes = [IsAuthenticated, ShiftOrAttendencePermission]   
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated, ShiftOrAttendencePermission]   
     filter_backends = (SearchFilter,)
     search_fields = ['employee_attended__fname', 'employee_attended__lname']
     ordering_fields = ['out_time']
@@ -53,8 +53,8 @@ class AttendenceViewSet(ModelViewSet):
 class SalaryDeductionViewSet(ModelViewSet):
     queryset = SalaryDeduction.objects.all()
     serializer_class = SalaryDeductionSerializer
-    # authentication_classes = [BasicAuthentication]
-    # permission_classes = [IsAuthenticated, SalOrEmpAccessPermission]
-    # filter_backends = None
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated, SalOrEmpAccessPermission]
+    filter_backends = None
     ordering_fields = ['id']
     

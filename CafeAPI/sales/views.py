@@ -13,8 +13,8 @@ from rest_framework.permissions import BasePermission
 class MenuApiView(ModelViewSet):
     serializer_class = MenuSerializer
     queryset = Menu.objects.all()
-    # authentication_classes = [BasicAuthentication]
-    # permission_classes = [IsOwnerOrAdmin]
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsOwnerOrAdmin]
     filter_backends = (DjangoFilterBackend,filters.SearchFilter, filters.OrderingFilter)
     ordering_fields = ['category']
     search_fields = ['name']
@@ -24,8 +24,8 @@ class MenuApiView(ModelViewSet):
 class TableApiView(ModelViewSet):
     serializer_class = TableSerializer
     queryset = Table.objects.all()
-    # authentication_classes = [BasicAuthentication]
-    # permission_classes = [IsOwnerOrAdmin]
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsOwnerOrAdmin]
     filter_backends = (DjangoFilterBackend,filters.SearchFilter, filters.OrderingFilter)
     ordering_fields = ['id']
     search_fields = ['name']
@@ -34,16 +34,16 @@ class CategoryApiView(ModelViewSet):
     serializer_class = CategorySerializer
     queryset = Category.objects.all()
     authentication_classes = [BasicAuthentication]
-    # permission_classes = [IsOwnerOrAdmin]
+    permission_classes = [IsOwnerOrAdmin]
     filter_backends = (DjangoFilterBackend, filters.SearchFilter,filters.OrderingFilter)
-    # ordering_fields = ['name']
+    ordering_fields = ['name']
     search_fields = ['name']
 
 class OrderApiView(ModelViewSet):
     serializer_class = OrderSerializer
     queryset  = Order.objects.all()
-    # authentication_classes = [BasicAuthentication]
-    # permission_classes = [IsAdminDelete]
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAdminDelete]
     filter_backends = (DjangoFilterBackend,filters.SearchFilter, filters.OrderingFilter)
     ordering_fields = ['-id']
     search_fields = ['id']
@@ -53,13 +53,13 @@ class OrderApiView(ModelViewSet):
 class OrderItemApiView(ModelViewSet):
     serializer_class = OrderItemSerializer
     queryset = OrderItem.objects.all()
-    # authentication_classes = [BasicAuthentication]
-    # permission_classes = [BasePermission]
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [BasePermission]
     filter_backends = (DjangoFilterBackend,filters.SearchFilter, filters.OrderingFilter)
     search_fields = ['order__id']
 
 class last_active_orders(ViewSet):
-    # permission_classes = [IsAdminDelete]
+    permission_classes = [IsAdminDelete]
     def list(self, request):
         """
         List last active orders for each table.

@@ -18,20 +18,14 @@ class BenefitsApiView(ModelViewSet):
     permission_classes = [AdminOnly]
     
 
-# class standardPagination(PageNumberPagination):
-#     page_size = 20
-#     page_query_param = 'page_size'
-#     max_page_size = 30
     
 class CostsApiView(ModelViewSet):
     serializer_class = CostsSerializer
     queryset = Costs.objects.all()
-    # authentication_classes = [BasicAuthentication]
-    # permission_classes = [IsUserPOST]
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsUserPOST]
     filterset_class = CostsFilter
     filter_backends = (SearchFilter, DjangoFilterBackend, )
-    search_fields = ['description']
-    # pagination_class = standardPagination
 
     def get_queryset(self):
         queryset = self.queryset

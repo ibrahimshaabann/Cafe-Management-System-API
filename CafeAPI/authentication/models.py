@@ -16,8 +16,6 @@ class User(AbstractUser):
                             default=Roles.USER,
                             null=False)
     
-    # @receiver(post_save, sender = settings.AUTH_USER_MODEL)
-    # def create_user_token(sender, instance = None):
-    #     pass
+   
 
    

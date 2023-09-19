@@ -55,20 +55,8 @@ class CustomOrderItemSerializer(serializers.ModelSerializer):
 
 class LastActiveOrderSerializer(serializers.ModelSerializer):
     order_items = CustomOrderItemSerializer(many=True)
-    # shift = ShiftSerializer()
     class Meta:
         model = Order
         fields = '__all__'
 
     
-    # def get_order_items(self):
-    #     return self.order_items
-    
-    # def to_representation(self, instance):
-    #     representation = super().to_representation(instance)
-
-    #     order_items = self.get_order_items(instance)
-
-    #     representation['order_items'] = order_items
-
-    #     return representation

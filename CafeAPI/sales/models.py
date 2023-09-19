@@ -37,7 +37,6 @@ class Menu(models.Model):
           return f"{self.name} "
     
 
-
 class Order(models.Model):
     date_time = models.DateTimeField("وقت الاوردر", auto_now=True)
     table = models.ForeignKey(Table, null=True, on_delete=models.SET_NULL, verbose_name="طاولة")
@@ -53,7 +52,6 @@ class Order(models.Model):
     def __str__(self):
         return f"{self.pk}"
     
-
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order,related_name='order_items', on_delete = models.CASCADE ,verbose_name="اوردر")
