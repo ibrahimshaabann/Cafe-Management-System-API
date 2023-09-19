@@ -213,11 +213,21 @@ The API should now be accessible at `http://localhost:8000/`. You can use the Dj
   
 You can use these endpoints to interact with the Coffee Management System API.
 ### Technologies Used
-- **Django**: The backend framework used for building the API.
-- **Django Rest Framework (DRF)**: An extension for Django that simplifies building RESTful APIs.
-- **JWT Authentication**: JSON Web Tokens are used for secure user authentication.
-- **PostgreSQL**: The relational database management system used to store data.
-- **Python**: The programming language in which the application is developed.
-- **Git Terminal**: Version control system for tracking changes in the project.
 
+**Backend:**
+- Django: The backend framework used for building the API.
+- Django Rest Framework (DRF): An extension for Django that simplifies building RESTful APIs.
+- JWT Authentication: JSON Web Tokens are used for secure user authentication.
+- PostgreSQL: The relational database management system used to store data.
+- Python: The programming language in which the application is developed.
+- Git Terminal: Version control system for tracking changes in the project.
+- ngrok
+- Postman
+
+**Frontend:**
+- Vue3
+- Tailwind CSS: A utility-first CSS framework for designing user interfaces.
+- Axios: A promise-based HTTP client for making API requests.
+
+These technologies are used to develop both the frontend and backend components of the Coffee Management System API.
 
