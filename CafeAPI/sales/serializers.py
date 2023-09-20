@@ -42,8 +42,11 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = ( 'id', 'date_time', 'table', 'shift', 'total_price', 'is_active', 'customer', )
 
-
 class OrderItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OrderItem
+        fields = '__all__'
+class CustomOrderItemSerializer(serializers.ModelSerializer):
     item = MenuSerializer()
     class Meta:
         model = OrderItem
@@ -51,7 +54,7 @@ class OrderItemSerializer(serializers.ModelSerializer):
 
 
 class LastActiveOrderSerializer(serializers.ModelSerializer):
-    order_items = OrderItemSerializer(many=True)
+    order_items = CustomOrderItemSerializer(many=True)
     # shift = ShiftSerializer()
     class Meta:
         model = Order
