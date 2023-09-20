@@ -44,11 +44,7 @@ The Coffee Management System API is a comprehensive backend system that handles 
 - **Table Management**: Assign tables to orders for efficient service.
 
 ## Entity Relationship diagram 
-
-![image](https://github.com/ibrahimshaabann/Cafe-Management-System-API/assets/73670927/b2fcf8e2-7c27-4ee3-b71c-7620247ab169)
-
-
-Here is a diagram that illustrates the overall system architecture of the Coffee Management System API.
+[![cafe-ERD.png](https://i.postimg.cc/VNDsKpp0/cafe-ERD.png)](https://postimg.cc/JyHWn61R)Here is a diagram that illustrates the overall system architecture of the Coffee Management System API.
 
 ## Getting Started
 
@@ -234,6 +230,14 @@ You can use these endpoints to interact with the Coffee Management System API.
 - Vue3
 - Tailwind CSS: A utility-first CSS framework for designing user interfaces.
 - Axios: A promise-based HTTP client for making API requests.
+---
+## Contributors
 
-These technologies are used to develop both the frontend and backend components of the Coffee Management System API.
+**Backend:**
+- Ibrahim Shaaban
+- Zeyad Mohammed
 
+**Frontend:**
+- Marwan Maher
+
+---
