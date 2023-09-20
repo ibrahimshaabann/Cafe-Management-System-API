@@ -80,8 +80,8 @@ class Attendence(models.Model):
         ordering = ['-id']
         verbose_name_plural = "الحضور والانصراف"
 
-    def __str__(self) :
-        return f" {self.employee_attended} {self.login_time}{self.logout_time}User: {self.user_created_the_attendence}"
+    # def __str__(self) :
+    #     return f" {self.employee_attended} {self.login_time}{self.logout_time}User: {self.user_created_the_attendence}"
 
 
 class Customer(Person):

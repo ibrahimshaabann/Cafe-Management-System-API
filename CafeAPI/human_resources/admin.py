@@ -4,8 +4,9 @@ from human_resources.models import Customer, Employee, SalaryDeduction, Shift, A
 admin.site.register(Customer)
 admin.site.register(Employee)
 admin.site.register(SalaryDeduction)
-admin.site.register(Attendence)
-
+@admin.register(Attendence)
+class AttendenceAdmin(admin.ModelAdmin):
+    list_display = ('employee_attended','in_time','out_time','user_created_the_attendence')
 
 @admin.register(Shift)
 class ShiftAdmin(admin.ModelAdmin):

@@ -58,7 +58,7 @@ def update__benefits_costs(sender,instance, **kwargs):
 
 
 
-@receiver(post_delete, sender= Order)
+@receiver(post_delete, sender = Order)
 def update_benefit_record_benefits(sender, instance, **kwargs):
         total_orders_profit = Order.objects.filter(benefit=instance.benefit).aggregate(total=Sum('total_price'))['total'] 
         benefit_record_to_be_updated = instance.benefit
