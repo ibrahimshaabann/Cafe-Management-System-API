@@ -2,7 +2,8 @@ from django.db.models.signals import pre_save, post_save,post_delete,pre_delete
 from django.dispatch import receiver
 from .models import Costs, Benefits
 from sales.models import Order
-from django.db.models import Sum,DecimalField
+from django.db.models import Sum
+from decimal import Decimal
 
 @receiver(pre_save, sender=Costs)
 def set_benefit(sender, instance, **kwargs):
@@ -48,12 +49,19 @@ def update_benefit_record_benefits(sender, instance, **kwargs):
 def update__benefits_costs(sender,instance, **kwargs):
 # Calculate the sum of 'price' for all related Costs records
     total_costs = Costs.objects.filter(benefit=instance.benefit).aggregate(total=Sum('price'))['total']
-
     # Update the 'costs' field in the associated Benefits instance
     instance.benefit.benefit_costs = total_costs if total_costs is not None else 0.00
-    instance.benefit.net_profit = instance.benefit.benefit - instance.benefit.benefit_costs
+    instance.benefit.net_profit = Decimal(instance.benefit.benefit) - Decimal(instance.benefit.benefit_costs)
     instance.benefit.save()
 
 
 
 
+
+@receiver(post_delete, sender= Order)
+def update_benefit_record_benefits(sender, instance, **kwargs):
+        total_orders_profit = Order.objects.filter(benefit=instance.benefit).aggregate(total=Sum('total_price'))['total'] 
+        benefit_record_to_be_updated = instance.benefit
+        benefit_record_to_be_updated.benefit = total_orders_profit if total_orders_profit is not None else 0.00
+        benefit_record_to_be_updated.net_profit = instance.benefit.benefit - instance.benefit.benefit_costs
+        benefit_record_to_be_updated.save()
