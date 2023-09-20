@@ -9,8 +9,12 @@ staticfiles_urlpatterns
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
+
+
+from dotenv import load_dotenv
+load_dotenv(".env")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +24,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-xv*qbdd9t9u-&a)@wh@3&sdendwbjyjik-m=fdjh*gf)0+koco'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,14 +79,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'CafeAPI.wsgi.application'
 
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cafemanagementsystemapi',
-        'USER': 'i',
-        'PASSWORD': '1',
-        'HOST': 'localhost',  # Change to your PostgreSQL server's host
-        'PORT': '5432',      # Change to your PostgreSQL server's port
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": str(os.environ.get("PGDATABASE")),
+        "USER": str(os.environ.get("PGUSER")),
+        "PASSWORD": str(os.environ.get("PGPASSWORD")),
+        "HOST": str(os.environ.get("PGHOST")),
+        "PORT": int(os.environ.get("PGPORT")),
+        # 'TEST': {
+        #     'NAME': '',
+        # },
     }
 }
 
@@ -208,3 +210,6 @@ GRAPH_MODELS ={
      }
 
 
+DEBUG = bool(os.environ.get("DEBUG", None))
+SECRET_KEY = os.environ.get("SECRET_KEY", None)
+ALLOWED_HOSTS = list(str(os.environ.get("ALLOWED_HOSTS")).split(", "))
