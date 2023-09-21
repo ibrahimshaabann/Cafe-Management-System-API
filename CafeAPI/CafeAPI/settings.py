@@ -170,7 +170,7 @@ SIMPLE_JWT = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    'https://cafe-management-system-api-production.up.railway.app/swagger/',
+    'https://cafe-management-system-api-production.up.railway.app',
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
