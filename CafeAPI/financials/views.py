@@ -16,7 +16,7 @@ from .filters import CostsFilter
 class BenefitsApiView(ModelViewSet):
     serializer_class = BenefitsSerializer
     queryset = Benefits.objects.all()
-    authentication_classes = []
+    authentication_classes = [JWTAuthentication]
     permission_classes = [AdminOnly]
     
 

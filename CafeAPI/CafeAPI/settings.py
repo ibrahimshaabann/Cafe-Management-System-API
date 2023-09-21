@@ -38,13 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
-    'drf_yasg',
+    'django_filters',
     'django_extensions',
     'authentication',
     'financials',
     'sales',
     'human_resources',
-    'django_filters',
+    'rest_framework_swagger',  
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -191,28 +192,21 @@ CORS_ALLOW_HEADERS = [
     "ngrok-skip-browser-warning"
 ]
 
-
-GRAPH_MODELS ={
-    'all_applications': False,
-    'group_models': True,
-
-      'all_models': [
-        'authentication.User',  
-        'human_resources.Shift',
-        'human_resources.Employee',
-        'human_resources.SalaryDeduction',
-        'human_resources.Attendence', 
-        'financials.Costs',
-        'financials.Benefits',
-        'sales.Table',
-        'sales.Menu',
-        'sales.Category',
-        'sales.Order',
-        'sales.OrderItem',
-    ],
-     }
-
-
 DEBUG = bool(os.environ.get("DEBUG", None))
 SECRET_KEY = os.environ.get("SECRET_KEY", None)
 ALLOWED_HOSTS = list(str(os.environ.get("ALLOWED_HOSTS")).split(", "))
+
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'JWT': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+        },
+    },
+    'USE_SESSION_AUTH': False,
+    'JSON_EDITOR': True,  # Enable JSON editor for request/response bodies
+    'api_version': '1.0',
+    'api_path': '/',
+}
