@@ -171,6 +171,7 @@ SIMPLE_JWT = {
 CORS_ALLOW_ORIGIN = ['https://cafe-management-system-api-production.up.railway.app/swagger/']
 
 CORS_ALLOW_ALL_ORIGINS = True
+
 # CORS_ALLOWED_ORIGINS = [
 #     'http://localhost:8086'
 # ]
