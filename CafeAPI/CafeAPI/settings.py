@@ -168,7 +168,11 @@ SIMPLE_JWT = {
     # 'VERIFYING_KEY': None,
     # 'AUTH_HEADER_TYPES': ('Bearer',),
 }
-CORS_ALLOW_ORIGIN = ['https://cafe-management-system-api-production.up.railway.app/swagger/']
+
+CORS_ALLOWED_ORIGINS = [
+    'https://cafe-management-system-api-production.up.railway.app/swagger/',
+    # Add other allowed origins if needed
+]
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -192,7 +196,11 @@ CORS_ALLOW_HEADERS = [
     "x-csrftoken",
     "x-requested-with",
     "ngrok-skip-browser-warning"
+    'accept-encoding',
+    'dnt',
+    'origin',
 ]
+   
 
 DEBUG = bool(os.environ.get("DEBUG", None))
 SECRET_KEY = os.environ.get("SECRET_KEY", None)
