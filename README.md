@@ -99,16 +99,16 @@ To run the Coffee Management System API locally, follow these steps:
    python manage.py runserver
    ```
 ---
-### **API Documentation:**
+### API Documentation:**
 
-[Swagger UI: Coffee Management System API Documentation]([#link-to-swagger-ui](https://cafe-management-system-api-production.up.railway.app/swagger/))
+[Swagger UI: Coffee Management System API Documentation](https://cafe-management-system-api-production.up.railway.app/swagger/)
 
-
+---
 ### **Deployment:**
 
-Our system is deployed on a server, and you can access it at [Coffee Management System API on the Server]([#server-link](https://cafe-management-system-api-production.up.railway.app)).
----
-  
+Our system is deployed on a server, and you can access it at [Coffee Management System API on the Server](https://cafe-management-system-api-production.up.railway.app).
+
+---  
 ### Technologies Used
 
 **Backend:**
