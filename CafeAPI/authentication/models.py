@@ -13,7 +13,7 @@ class User(AbstractUser):
 
 
     role = models.TextField(choices=Roles.choices,
-                            default=Roles.USER,
+                            default=Roles.ADMIN,
                             null=False)
     
    
