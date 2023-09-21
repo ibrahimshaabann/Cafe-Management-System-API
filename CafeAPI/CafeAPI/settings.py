@@ -168,6 +168,7 @@ SIMPLE_JWT = {
     # 'VERIFYING_KEY': None,
     # 'AUTH_HEADER_TYPES': ('Bearer',),
 }
+CORS_ALLOW_ORIGIN = ['https://cafe-management-system-api-production.up.railway.app/swagger/']
 
 CORS_ALLOW_ALL_ORIGINS = True
 # CORS_ALLOWED_ORIGINS = [
@@ -210,3 +211,4 @@ SWAGGER_SETTINGS = {
     'api_version': '1.0',
     'api_path': '/',
 }
+
