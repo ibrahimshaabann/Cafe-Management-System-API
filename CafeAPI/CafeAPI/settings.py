@@ -169,6 +169,10 @@ SIMPLE_JWT = {
     # 'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
+CORS_ALLOWED_ORIGINS = [
+    'https://cafe-management-system-api-production.up.railway.app/swagger/',
+]
+
 CORS_ALLOW_ALL_ORIGINS = True
 
 # CORS_ALLOWED_ORIGINS = [
@@ -198,11 +202,12 @@ CORS_ALLOW_HEADERS = [
     'origin',
 ]
    
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SESSION_COOKIE_SECURE = True
 
 DEBUG = bool(os.environ.get("DEBUG", None))
 SECRET_KEY = os.environ.get("SECRET_KEY", None)
 ALLOWED_HOSTS = list(str(os.environ.get("ALLOWED_HOSTS")).split(", "))
-
 
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
@@ -210,11 +215,11 @@ SWAGGER_SETTINGS = {
             'type': 'apiKey',
             'name': 'Authorization',
             'in': 'header',
+            'scheme': 'https', 
         },
     },
     'USE_SESSION_AUTH': False,
-    'JSON_EDITOR': True,  # Enable JSON editor for request/response bodies
+    'JSON_EDITOR': True,
     'api_version': '1.0',
-    'api_path': '/',
+    'api_path': 'https://cafe-management-system-api-production.up.railway.app/swagger/',  
 }
-
