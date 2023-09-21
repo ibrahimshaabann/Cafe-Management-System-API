@@ -169,11 +169,6 @@ SIMPLE_JWT = {
     # 'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
-CORS_ALLOWED_ORIGINS = [
-    'https://cafe-management-system-api-production.up.railway.app/swagger/',
-    # Add other allowed origins if needed
-]
-
 CORS_ALLOW_ALL_ORIGINS = True
 
 # CORS_ALLOWED_ORIGINS = [
@@ -192,6 +187,8 @@ CORS_ALLOW_HEADERS = [
     "accept",
     "authorization",
     "content-type",
+    'api_key',          
+    'Authorization',
     "user-agent",
     "x-csrftoken",
     "x-requested-with",
